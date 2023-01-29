@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from "../../assets/images/Logo.png";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
+import {useForm, Controller} from 'react-hook-form';
 
 
 const InputPage = () => {
@@ -13,10 +14,14 @@ const InputPage = () => {
     const [phonebrand, setphonebrand] = useState('');
     const [phonenumber, setphonenumber] = useState('');
 
+    const {control, handleSubmit, formState: {errors},} = useForm();
+
     const [value, setvalue] = useState([]);
 
 
-    const onInsertPressed = () => {
+    const onInsertPressed = data => {
+
+
        {/*if (username, country, phonebrand, phonenumber) {
         AsyncStorage.setItem('username', 'country', 'phonebrand', 'phonenumber', [username, country, phonebrand, phonenumber]);
         setusername([]);
@@ -41,31 +46,35 @@ const InputPage = () => {
             <Image source={Logo} style={styles.logo} resizeMode="contain" />
 
             <CustomInput 
+            name="username"
             placeholder="Name" 
-            value={username} 
-            setValue={setusername}
+            control={control}
+            rules={{required: true}}
             />
 
             <CustomInput 
+            name="country"
             placeholder="Country" 
-            value={country} 
-            setValue={setcountry} 
+            control={control}
+            rules={{required: true}}
             />
 
             <CustomInput 
-            placeholder="Favourite Phone Brand" 
-            value={phonebrand} 
-            setValue={setphonebrand} 
+            name="phonebrand"
+            placeholder="favourite Phone Brand" 
+            control={control} 
+            rules={{required: true}}
             />
 
             <CustomInput 
-            placeholder="Phone Number" 
-            value={phonenumber} 
-            setValue={setphonenumber} 
+            name="phone number"
+            placeholder="Phone number" 
+            control={control}
+            rules={{required: true}}
             keyboardType="numeric"
             />
 
-            <CustomButton text="Insert" onPress={onInsertPressed} />
+            <CustomButton text="Insert" onPress={handleSubmit(onInsertPressed)} />
 
             <CustomButton text="Get data" onPress={onGetPressed} />
 
