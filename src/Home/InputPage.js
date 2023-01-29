@@ -9,15 +9,15 @@ import {useForm, Controller} from 'react-hook-form';
 
 const InputPage = () => {
 
-    const [username, setusername] = useState('');
+    {/*const [username, setusername] = useState('');
     const [country, setcountry] = useState('');
     const [phonebrand, setphonebrand] = useState('');
     const [phonenumber, setphonenumber] = useState('');
 
+
+    const [value, setvalue] = useState([]);*/}
+
     const {control, handleSubmit, formState: {errors},} = useForm();
-
-    const [value, setvalue] = useState([]);
-
 
     const onInsertPressed = data => {
 
@@ -49,28 +49,28 @@ const InputPage = () => {
             name="username"
             placeholder="Name" 
             control={control}
-            rules={{required: true}}
+            rules={{required: 'Missed here'}}
             />
 
             <CustomInput 
             name="country"
             placeholder="Country" 
             control={control}
-            rules={{required: true}}
+            rules={{required: 'Missed here'}}
             />
 
             <CustomInput 
             name="phonebrand"
             placeholder="favourite Phone Brand" 
             control={control} 
-            rules={{required: true}}
+            rules={{required: 'Missed here'}}
             />
 
             <CustomInput 
             name="phone number"
             placeholder="Phone number" 
             control={control}
-            rules={{required: true}}
+            rules={{required: 'Missed here'}}
             keyboardType="numeric"
             />
 
