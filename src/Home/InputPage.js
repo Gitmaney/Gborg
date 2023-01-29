@@ -9,36 +9,34 @@ import {useForm, Controller} from 'react-hook-form';
 
 const InputPage = () => {
 
-    {/*const [username, setusername] = useState('');
-    const [country, setcountry] = useState('');
-    const [phonebrand, setphonebrand] = useState('');
-    const [phonenumber, setphonenumber] = useState('');
+    const [username, setusername] = useState([]);
+    const [country, setcountry] = useState([]);
+    const [phonebrand, setphonebrand] = useState([]);
+    const [phonenumber, setphonenumber] = useState([]);
 
 
-    const [value, setvalue] = useState([]);*/}
+    const [value, setvalue] = useState([]);
 
     const {control, handleSubmit, formState: {errors},} = useForm();
 
     const onInsertPressed = data => {
-
-
-       {/*if (username, country, phonebrand, phonenumber) {
-        AsyncStorage.setItem('username', 'country', 'phonebrand', 'phonenumber', [username, country, phonebrand, phonenumber]);
-        setusername([]);
-        setcountry([]);
-        setphonebrand([]);
-        setphonenumber([]);
-        Alert.alert('Data saved');
-       } else {
+        if (username, country, phonebrand, phonenumber) {
+            AsyncStorage.setItem('username', 'country', 'phonebrand', 'phonenumber', [username, country, phonebrand, phonenumber]);
+            setusername([]);
+            setcountry([]);
+            setphonebrand([]);
+            setphonenumber([]);
+            Alert.alert('Data saved');
+         } else {
         Alert.alert("Fill all the data");
-       }*/}
+       }
     }
 
     const onGetPressed = () => {
-      {/*AsyncStorage.getItem('username', 'country', 'phonebrand', 'phonenumber')
+      AsyncStorage.getItem('username', 'country', 'phonebrand', 'phonenumber')
       .then((value) => {
         setvalue(value);
-      })*/}
+      })
     }
 
     return (
@@ -61,7 +59,7 @@ const InputPage = () => {
 
             <CustomInput 
             name="phonebrand"
-            placeholder="favourite Phone Brand" 
+            placeholder="Favourite Phone Brand" 
             control={control} 
             rules={{required: 'Missed here'}}
             />
