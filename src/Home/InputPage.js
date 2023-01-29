@@ -19,9 +19,9 @@ const InputPage = () => {
 
     const {control, handleSubmit, formState: {errors},} = useForm();
 
-    const onInsertPressed = data => {
+    const onInsertPressed = async() => {
         if (username, country, phonebrand, phonenumber) {
-            AsyncStorage.setItem('username', 'country', 'phonebrand', 'phonenumber', [username, country, phonebrand, phonenumber]);
+            await AsyncStorage.setItem('username', 'country', 'phonebrand', 'phonenumber', JSON.stringify([username, country, phonebrand, phonenumber]));
             setusername([]);
             setcountry([]);
             setphonebrand([]);
@@ -32,8 +32,8 @@ const InputPage = () => {
        }
     }
 
-    const onGetPressed = () => {
-      AsyncStorage.getItem('username', 'country', 'phonebrand', 'phonenumber')
+    const onGetPressed = async() => {
+     await AsyncStorage.getItem('username', 'country', 'phonebrand', 'phonenumber')
       .then((value) => {
         setvalue(value);
       })
